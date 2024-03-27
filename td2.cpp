@@ -291,6 +291,14 @@ void afficherListeItems(const T& listeItems)
 	}
 }
 
+template<typename T>
+void iterateandprint(const Liste<T>& liste) {
+	for (int i = 0; i < liste.capacite_; i++) {
+		if (liste.elements_[i]) { // Check if the shared_ptr is not null
+                std::cout << *(liste.elements_[i]) << std::endl;
+	}
+}	
+}
 #pragma region "Exemples de tests unitaires"//{
 #ifdef TEST
 // Pas demandés dans ce TD mais sert d'exemple.
@@ -333,6 +341,7 @@ TEST(tests_ListeFilms, trouver) {
 	li.detruire();
 }
 
+
 #endif
 #pragma endregion//}
 
@@ -374,11 +383,41 @@ int main(int argc, char* argv[])
 
 	}
 	
-	
+	forward_list<unique_ptr<Item>> FLRitems; // current behavior FLitems est vide ( unique ptr)
+	for (auto& ptr: FLitems) {
+		FLRitems.push_front(make_unique<Item>(*ptr));
+	}
+
+	forward_list<unique_ptr<Item>> FLNitems;
+	auto itn = FLNitems.before_begin();
+
+	for(const auto& ptr: FLitems) {
+
+		if (ptr) {
+			auto  newPtr = make_unique<Item>(*ptr);
+			itn = FLNitems.insert_after(itn,move(newPtr));
+		}
+	}
+	vector<unique_ptr<Item>> Nitems;
+
+	for (const auto& item: FLNitems) {
+		if (item) {
+			Nitems.push_back(make_unique<Item>(*item));
+		}
+	}
+
+
+	// for (auto& ptr: FLitems) {
+	// 	cout << 'c' << *ptr << endl;
+	// }
+
+	// for (auto& ptr: FLNitems) {
+	// 	cout << 'N' << *ptr << endl;
+	// }
 	
 	// 4.
 	items.push_back(make_unique<FilmLivre>(dynamic_cast<Film&>(*items[4]), dynamic_cast<Livre&>(*items[9])));  // On ne demandait pas de faire une recherche; serait direct avec la matière du TD5.
-
+	
 	// 3.
 	afficherListeItems(items);
 }

@@ -8,7 +8,8 @@
     "files.associations": {
         "iostream": "cpp",
         "iomanip": "cpp",
-        "vector": "cpp"
+        "vector": "cpp",
+        "forward_list": "cpp"
     },
     // "C_Cpp.loggingLevel": "Debug"
 }
