@@ -16,6 +16,7 @@
 #include "cppitertools/range.hpp"
 #include "cppitertools/enumerate.hpp"
 #include "gsl/span"
+#include <forward_list>
 
 #if __has_include("gtest/gtest.h")
 #include "gtest/gtest.h"
@@ -360,6 +361,20 @@ int main(int argc, char* argv[])
 				items.push_back(make_unique<Livre>(fichier));
 		}
 	}
+	
+	forward_list<unique_ptr<Item>> FLitems;
+	auto it = FLitems.before_begin();
+
+	for (const auto& ptr : items) {
+		if(ptr) {
+			auto newPtr = make_unique<Item>(*ptr);
+
+			it = FLitems.insert_after(it, move(newPtr));
+		}
+
+	}
+	
+	
 	
 	// 4.
 	items.push_back(make_unique<FilmLivre>(dynamic_cast<Film&>(*items[4]), dynamic_cast<Livre&>(*items[9])));  // On ne demandait pas de faire une recherche; serait direct avec la matière du TD5.
