@@ -1,0 +1,4 @@
+/Users/alexandreribeiro/Documents/TD2_INF1015_H24/build/CMakeFiles/ProjetTD2.dir
+/Users/alexandreribeiro/Documents/TD2_INF1015_H24/build/CMakeFiles/ProjetTD2_couverture.dir
+/Users/alexandreribeiro/Documents/TD2_INF1015_H24/build/CMakeFiles/edit_cache.dir
+/Users/alexandreribeiro/Documents/TD2_INF1015_H24/build/CMakeFiles/rebuild_cache.dir

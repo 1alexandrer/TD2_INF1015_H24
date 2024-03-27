@@ -1,0 +1,69 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.10"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ProjetTD2",
+					"targetIndexes" : 
+					[
+						0,
+						1
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ProjetTD2::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProjetTD2-Debug-1583b37efee278b6feee.json",
+					"name" : "ProjetTD2",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ProjetTD2_couverture::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ProjetTD2_couverture-Debug-e4e2d88136d617c574eb.json",
+					"name" : "ProjetTD2_couverture",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/alexandreribeiro/Documents/TD2_INF1015_H24/build",
+		"source" : "/Users/alexandreribeiro/Documents/TD2_INF1015_H24"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

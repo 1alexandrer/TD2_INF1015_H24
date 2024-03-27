@@ -280,13 +280,13 @@ void Livre::lireDe(istream& is)
 Livre::Livre(istream& is) {
 	lireDe(is);
 }
-
-void afficherListeItems(span<unique_ptr<Item>> listeItems)
+template <typename T>
+void afficherListeItems(const T& listeItems)
 {
 	static const string ligneDeSeparation = "\033[32m────────────────────────────────────────\033[0m\n";
 	cout << ligneDeSeparation;
 	for (auto&& item : listeItems) {
-		cout << *item << ligneDeSeparation;
+		cout  << *item << ligneDeSeparation;
 	}
 }
 
