@@ -43,6 +43,9 @@ private:
 template <typename T>
 class Liste {
 public:
+
+	int getnElements() const { return nElements_;};
+	auto getelements(int i) const {return elements_[i];};
 	Liste() = default;
 	explicit Liste(int capaciteInitiale) :  // explicit n'est pas matière à ce TD, mais c'est un cas où c'est bon de l'utiliser, pour ne pas qu'il construise implicitement une Liste à partir d'un entier, par exemple "maListe = 4;".
 		capacite_(capaciteInitiale),
@@ -91,6 +94,8 @@ public:
 	void lireDe(istream& is);
 
 	friend Film* lireFilm(istream& fichier, ListeFilms& listeFilms);
+	
+
 
 private:
 	string titre;
@@ -102,7 +107,7 @@ class Film : virtual public Item
 public:
 	void afficherSur(ostream& os) const override;
 	void afficherSpecifiqueSur(ostream& os) const;  // Affiche la parite de cette classe sans afficher la base virtuelle.
-
+	ListeActeurs getActeur() { return acteurs;};
 	friend Film* lireFilm(istream& fichier, ListeFilms& listeFilms);
 	friend shared_ptr<Acteur> ListeFilms::trouverActeur(const string& nomActeur) const;
 	template <typename T> struct accessible_pour_tests_par;  // Non demandé, ni matière au cours, permet d'ajouter des accès pour les tests.

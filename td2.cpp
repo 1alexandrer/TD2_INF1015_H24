@@ -293,9 +293,9 @@ void afficherListeItems(const T& listeItems)
 
 template<typename T>
 void iterateandprint(const Liste<T>& liste) {
-	for (int i = 0; i < liste.capacite_; i++) {
-		if (liste.elements_[i]) { // Check if the shared_ptr is not null
-                std::cout << *(liste.elements_[i]) << std::endl;
+	for (int i = 0; i < liste.getnElements(); i++) {
+		if (liste.getelements(i)) { // Check if the shared_ptr is not null
+                std::cout << *(liste.getelements(i)) << std::endl;
 	}
 }	
 }
@@ -420,4 +420,15 @@ int main(int argc, char* argv[])
 	
 	// 3.
 	afficherListeItems(items);
+	
+	
+	ListeFilms listeFilms = creerListe("films.bin");
+			for (auto&& film : listeFilms.enSpan())
+				items.push_back(unique_ptr<Item>(film));  // On transert la possession.
+			auto x = listeFilms[0]->getActeur();
+			iterateandprint(x);
+			listeFilms.detruire();
+		
+	
 }
+// cout << *listeFilms[0]->getActeur;
